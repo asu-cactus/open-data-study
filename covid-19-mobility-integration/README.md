@@ -80,7 +80,7 @@ Analyze the data reported at the **county** level. *The selection of columns for
 #### Task 7
 The existing data source of **left table** is no longer available. So, we decide to switch our **left table** data source to [NYTimes COVID-19](https://github.com/nytimes/covid-19-data) data repository. We use all columns provided by the NYTimes and perform a inner join at the county level.
 
-*Note: for this task, we only perform the join on the data of 06-30-2020.*
+*Note: for this task, we only perform the join on the data of 06-30-2020. The data file is located at `source-datasets/us-counties-nyt.csv`. This file is COVID-19 data reported at the U.S. county level by NYTimes. So, there is no aggregation needed when processing it.*
 
 
 #### Task 8
@@ -89,7 +89,7 @@ The existing data source of **left table** is no longer available. So, we decide
 - add another column `date`, whose value is `2020-06-30`
 - select the `country_region_code`, `sub_region_1`, `sub_region_2`, `Confirmed` and `date` of the left table, then perform  join. 
 
-*Note: for this task, we only perform the join on the data of 06-30-2020.*
+*Note: for this task, we only perform the join on the data of 06-30-2020. The data file is located at `source-datasets/time_series_covid19_confirmed_US.csv`.*
 
 ---
 
@@ -247,11 +247,10 @@ Also, you may need to modify the `utils.py` to pass the integration tests. We do
 After you have an understanding of the integration tasks and how to run the code, you can first run the code from the date within `02/15/2020 - 02/29/2020`, to make sure your code passes **6 out of 8** tests. This is the default setting. 
 
 The requirements to submit your result:
-1. you need to submit your codes that can pass all tests with a given **date** between `03/01/2020` and `06/30/2020`.
-2. start a timer to measure the time you spend passing tests separately. You can use the following template to submit your result.
-3. please measure the time in **minutes**, and fill the result to the file `experiment_results.txt`.
-
-Please submit your `fixed code files` and `experiment_results.txt` to us.  Thanks.
+1. select a testing date between between `03/01/2020` and `06/30/2020`.
+2. you need to submit your codes that can pass all tests with the date you specify in the **Step 1**.
+3. start a timer to measure the time you spend passing tests separately. You can use the template in `experiment_results.txt` to submit your result.
+4. please submit your `fixed code files`, integration_tasks.py and utils.py, and `experiment_results.txt` to **lixi.zhou@asu.edu** with subject: **Result: open data study**. Thanks.
 
 ## More info
 ### Dataset schemas

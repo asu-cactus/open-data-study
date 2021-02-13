@@ -53,7 +53,7 @@ class TestIntegration(unittest.TestCase):
     # Task 1
     # Data Integration at Country level with basic columns: 
     # confirmed, death, recovered
-    def test_country_level_with_basic_columns(self):
+    def test_task1_country_level_with_basic_columns(self):
         # Aggregate data into country level
         # FIXME if broken
         left = self.df1.groupby(['country_region_code', 'date']).agg(
@@ -71,12 +71,14 @@ class TestIntegration(unittest.TestCase):
         joined_exp = pd.read_csv(joined_exp_path, encoding='utf-8')
 
         # Compare the results
-        pd.testing.assert_frame_equal(joined, joined_exp, check_dtype=False)
+        pd.testing.assert_frame_equal(joined, joined_exp, 
+                                      check_dtype=False, 
+                                      check_like=True)
 
     # Task 2
     # Data Integration at Country level with extra columns: 
     # basic columns + longitude, latitude, active, etc.
-    def test_country_level_with_extra_columns(self):
+    def test_task2_country_level_with_extra_columns(self):
         # Aggregate data into country level
         # FIXME if broken
         left = self.df1.groupby(['country_region_code', 'date']).agg(
@@ -94,12 +96,14 @@ class TestIntegration(unittest.TestCase):
         joined_exp = pd.read_csv(joined_exp_path, encoding='utf-8')
 
         # Compare the results
-        pd.testing.assert_frame_equal(joined, joined_exp, check_dtype=False)
+        pd.testing.assert_frame_equal(joined, joined_exp, 
+                                      check_dtype=False, 
+                                      check_like=True)
     
     # Task 3
     # Data Integration at State level with basic columns: 
     # confirmed, death, recovered
-    def test_state_level_with_basic_columns(self):
+    def test_task3_state_level_with_basic_columns(self):
         # state Level 
         # FIXME if broken
         left = self.df1.groupby(['country_region_code', 'sub_region_1', 'date']).agg(
@@ -118,12 +122,14 @@ class TestIntegration(unittest.TestCase):
         joined_exp = pd.read_csv(joined_exp_path, encoding='utf-8')
 
         # Compare the results
-        pd.testing.assert_frame_equal(joined, joined_exp, check_dtype=False)
+        pd.testing.assert_frame_equal(joined, joined_exp, 
+                                      check_dtype=False, 
+                                      check_like=True)
 
     # Task 4
     # Data Integration at State level with extra columns: 
     # basic columns + longitude, latitude, active, etc.
-    def test_state_level_with_extra_columns(self):
+    def test_task4_state_level_with_extra_columns(self):
         # state Level 
         # FIXME if broken
         left = self.df1.groupby(['country_region_code', 'sub_region_1', 'date']).agg(
@@ -142,12 +148,14 @@ class TestIntegration(unittest.TestCase):
         joined_exp = pd.read_csv(joined_exp_path, encoding='utf-8')
 
         # Compare the results
-        pd.testing.assert_frame_equal(joined, joined_exp, check_dtype=False)
+        pd.testing.assert_frame_equal(joined, joined_exp, 
+                                      check_dtype=False, 
+                                      check_like=True)
 
     # Task 5
     # Data Integration at County level with basic columns: 
     # confirmed, death, recovered
-    def test_county_level_with_basic_columns(self):
+    def test_task5_county_level_with_basic_columns(self):
         # county Level 
         # FIXME if broken
         left = self.df1.groupby(['country_region_code', 'sub_region_1', 'sub_region_2', 'date']).agg(
@@ -165,12 +173,14 @@ class TestIntegration(unittest.TestCase):
         joined_exp = pd.read_csv(joined_exp_path, encoding='utf-8')
 
         # Compare the results
-        pd.testing.assert_frame_equal(joined, joined_exp, check_dtype=False)
+        pd.testing.assert_frame_equal(joined, joined_exp, 
+                                      check_dtype=False, 
+                                      check_like=True)
 
     # Task 6
     # Data Integration at County level with extra columns: 
     # basic columns + longitude, latitude, active, etc.
-    def test_county_level_with_extra_columns(self):
+    def test_task6_county_level_with_extra_columns(self):
         # county Level 
         left = self.df1.groupby(['country_region_code', 'sub_region_1', 'sub_region_2', 'date']).agg(
             {'Confirmed':'sum', 'Deaths':'sum', 'Recovered':'sum'})
@@ -187,13 +197,15 @@ class TestIntegration(unittest.TestCase):
         joined_exp = pd.read_csv(joined_exp_path, encoding='utf-8')
 
         # Compare the results
-        pd.testing.assert_frame_equal(joined, joined_exp, check_dtype=False)
+        pd.testing.assert_frame_equal(joined, joined_exp, 
+                                      check_dtype=False, 
+                                      check_like=True)
 
     # Task 7
     # Replace left table (JHU daily report) by NYTimes COVID Report
     # In this case, we only integrate the covid-19 data with US counties
     # on 06-30-2020.
-    def test_left_table_replaced_by_nytime(self):
+    def test_task7_left_table_replaced_by_nytime(self):
         df1 = pd.read_csv('source-datasets/us-counties-nyt.csv', sep=',', encoding='utf-8', low_memory=False)
         # FIXME if broken
         # left =
@@ -210,13 +222,15 @@ class TestIntegration(unittest.TestCase):
         joined_exp = pd.read_csv(joined_exp_path, encoding='utf-8')
 
         # Compare the results
-        pd.testing.assert_frame_equal(joined, joined_exp, check_dtype=False)
+        pd.testing.assert_frame_equal(joined, joined_exp, 
+                                      check_dtype=False, 
+                                      check_like=True)
     
     # Task 8
     # Replace left table (JHU daily report) by JHU COVID TimeSeries Report
     # In this case, we only integrate the covid-19 data with US counties
     # on 06-30-2020.
-    def test_left_table_replaced_by_jhu_timeseries(self):
+    def test_task8_left_table_replaced_by_jhu_timeseries(self):
         df1 = pd.read_csv('source-datasets/time_series_covid19_confirmed_US.csv',
                           sep=',', encoding='utf-8', low_memory=False)
         # FIXME if broken 
@@ -234,7 +248,9 @@ class TestIntegration(unittest.TestCase):
         joined_exp = pd.read_csv(joined_exp_path, encoding='utf-8')
 
         # Compare the results
-        pd.testing.assert_frame_equal(joined, joined_exp, check_dtype=False)
+        pd.testing.assert_frame_equal(joined, joined_exp, 
+                                      check_dtype=False, 
+                                      check_like=True)
 
 if __name__ == '__main__':
     # logging.getLogger().setLevel(logging.INFO)
