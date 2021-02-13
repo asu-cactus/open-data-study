@@ -1,10 +1,15 @@
-Time to fix data integration tasks:
-(Please measure your time in minutes)
-Task 1:
-Task 2:
-Task 3:
-Task 4:
-Task 5:
-Task 6:
-Task 7:
-Task 8:
+Time to fix data integration tasks
+(Please measure your time in MINUTES and indicate the ORDER when you are finishing the task after # symbol)
+
+The date you test:
+ (# ) Task 1:
+ (# ) Task 2:
+ (# ) Task 3:
+ (# ) Task 4:
+ (# ) Task 5:
+ (# ) Task 6:
+ (# ) Task 7:
+ (# ) Task 8:
+ (# ) Time in fixing utils.py (if applicable): 
+
+Note: sometimes, you may need to fix the code in utils.py, in such case, please measure your time spent on it.
